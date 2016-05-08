@@ -6,7 +6,14 @@ const SEGMENT_LENGTH = 5;
 const BIAS_TO_PERFECT = 0.5;
 const RANDOM_FACTOR = 0.5;
 
-
+/**
+ * Generates a slightly wobbly path between two coordinates. The amount of
+ * wobbliness can be changed by tweaking the above constants.
+ *
+ * @param {Coord} from The coordinate to draw from.
+ * @param {Coord} to The coordinate to draw to.
+ * @returns {string} A string representing the path to draw.
+ */
 export default function generatePath(from, to) {
 	let path = `M${from.x},${from.y}`;
 	let currentPoint = from;
@@ -22,6 +29,9 @@ export default function generatePath(from, to) {
 
 		let newDirection;
 		if (currentDirection) {
+			// This carries on most in the direction the line is currently going, but
+			// skews it a little bit back towards the point it's supposed to be going
+			// so that it's not too crazy
 			newDirection = Vector.average(
 					perfect.restrictMagnitude(BIAS_TO_PERFECT),
 					currentDirection.restrictMagnitude(1 - BIAS_TO_PERFECT)

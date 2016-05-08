@@ -1,5 +1,12 @@
 import Coord from './coord';
 
+/**
+ * A small wrapper function so that we don't have to mix canvas logic randomly
+ * in the rest of the code. Basically makes everything testable.
+ *
+ * @param {string} selector The element to draw onto.
+ * @constructor
+ */
 export default function Canvas(selector) {
 	this._canvas = document.querySelector(selector);
 	this._context = this._canvas.getContext('2d');
@@ -7,6 +14,8 @@ export default function Canvas(selector) {
 	this.origin = new Coord(this._canvas.width / 2, this._canvas.height / 2);
 }
 
+
+// Colors for the path
 let opacity = 0.6;
 
 // https://color.adobe.com/Passado1-color-theme-8032401/

@@ -20,8 +20,8 @@ random.normal = function () {
 	var total = 0;
 
 	for (let i = 0; i < 12; i++) {
-		total += Math.random();
+		total += random();
 	}
 
-	return total - 6;
+	return total;
 };
