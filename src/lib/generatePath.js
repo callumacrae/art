@@ -3,7 +3,8 @@ import Vector from './vector';
 
 
 const SEGMENT_LENGTH = 5;
-const BIAS_TO_PERFECT = 0.2;
+const BIAS_TO_PERFECT = 0.5;
+const RANDOM_FACTOR = 0.5;
 
 
 export default function generatePath(from, to) {
@@ -31,7 +32,7 @@ export default function generatePath(from, to) {
 
 		newDirection = newDirection
 				.restrictMagnitude(SEGMENT_LENGTH)
-				.randomiseByFactor(3);
+				.randomiseByFactor(RANDOM_FACTOR);
 
 		let newPoint = currentPoint.add(newDirection);
 

@@ -20,8 +20,8 @@ Vector.prototype.restrictMagnitude = function (newMagnitude) {
 	return new Vector(this.ax * ratio, this.ay * ratio);
 };
 
-Vector.prototype.randomiseByFactor = function (factor) {
-	return new Vector(this.ax + random() * factor, this.ay);
+Vector.prototype.randomiseByFactor = function (factor = 1) {
+	return new Vector(this.ax + random.normal() * factor, this.ay + random.normal() * factor);
 };
 
 /**

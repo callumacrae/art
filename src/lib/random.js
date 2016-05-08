@@ -7,3 +7,21 @@
 export default function random() {
 	return Math.random() - 0.5;
 }
+
+/**
+ * Generate normally distributed random numbers.
+ *
+ * Only an approximation: actually a Irwin–Hall distribution.
+ *
+ * @returns {number} A number between -6 and 6 that will approximately map to a
+ * normal distribution.
+ */
+random.normal = function () {
+	var total = 0;
+
+	for (let i = 0; i < 12; i++) {
+		total += Math.random();
+	}
+
+	return total - 6;
+};
