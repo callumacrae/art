@@ -1,10 +1,6 @@
 import Coord from './coord';
 import Vector from './vector';
-
-
-const SEGMENT_LENGTH = 5;
-const BIAS_TO_PERFECT = 0.5;
-const RANDOM_FACTOR = 0.5;
+import * as config from '../config';
 
 /**
  * Generates a slightly wobbly path between two coordinates. The amount of
@@ -33,16 +29,16 @@ export default function generatePath(from, to) {
 			// skews it a little bit back towards the point it's supposed to be going
 			// so that it's not too crazy
 			newDirection = Vector.average(
-					perfect.restrictMagnitude(BIAS_TO_PERFECT),
-					currentDirection.restrictMagnitude(1 - BIAS_TO_PERFECT)
+					perfect.restrictMagnitude(config.BIAS_TO_PERFECT),
+					currentDirection.restrictMagnitude(1 - config.BIAS_TO_PERFECT)
 			);
 		} else {
 			newDirection = perfect;
 		}
 
 		newDirection = newDirection
-				.restrictMagnitude(SEGMENT_LENGTH)
-				.randomiseByFactor(RANDOM_FACTOR);
+				.restrictMagnitude(config.SEGMENT_LENGTH)
+				.randomiseByFactor(config.RANDOM_FACTOR);
 
 		let newPoint = currentPoint.add(newDirection);
 
@@ -50,7 +46,7 @@ export default function generatePath(from, to) {
 		currentPoint = newPoint;
 		currentDirection = newDirection;
 
-	} while (currentPoint.distFrom(to) > SEGMENT_LENGTH * 10 && maxRuns--);
+	} while (currentPoint.distFrom(to) > config.SEGMENT_LENGTH * 10 && maxRuns--);
 
 	return path;
 }

@@ -1,4 +1,5 @@
 import Coord from './coord';
+import { COLORS as colors } from '../config';
 
 /**
  * A small wrapper function so that we don't have to mix canvas logic randomly
@@ -14,17 +15,6 @@ export default function Canvas(selector) {
 	this.origin = new Coord(this._canvas.width / 2, this._canvas.height / 2);
 }
 
-
-// Colors for the path
-let opacity = 0.6;
-
-// https://color.adobe.com/Passado1-color-theme-8032401/
-let colors = [
-	`rgba(83, 84, 115, ${opacity})`, // blue
-	`rgba(214, 216, 209, ${opacity})`, // white
-	`rgba(159, 145, 124, ${opacity})`, // cream
-	`rgba(142, 55, 48, ${opacity})` // red
-];
 
 /**
  * Draws a path to the canvas. Path should be a string similar to how Raphael
@@ -52,7 +42,6 @@ Canvas.prototype.drawPath = function (path) {
 	});
 
 	context.lineWidth = 2;
-
 
 	context.strokeStyle = colors[Math.floor(Math.random() * colors.length)];
 	context.stroke();

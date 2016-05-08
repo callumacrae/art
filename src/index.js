@@ -1,16 +1,14 @@
 import Canvas from './lib/canvas';
 import Vector from './lib/Vector';
-import random from './lib/random';
 import generatePath from './lib/generatePath';
+import * as config from './config';
 
 const canvas = new Canvas('#canvas');
 const origin = canvas.origin;
 
-const NUMBER_OF_LINES = 1000;
-
-for (var i = 0; i < NUMBER_OF_LINES; i++) {
+for (var i = 0; i < config.NUMBER_OF_LINES; i++) {
 	let randomDirection = Vector.random();
-	let start = origin.add(randomDirection.restrictMagnitude(200 + random() * 250));
-	let end = origin.add(randomDirection.restrictMagnitude(400 + random() * 50));
+	let start = origin.add(randomDirection.restrictMagnitude(config.startLength()));
+	let end = origin.add(randomDirection.restrictMagnitude(config.endLength()));
 	canvas.drawPath(generatePath(start, end));
 }
