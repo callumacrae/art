@@ -26,7 +26,7 @@ Canvas.prototype.drawPath = function (path) {
 	const points = path.split(/(?=[A-Z])/g);
 
 	points.forEach(function (point) {
-		let [_, type, ax, ay] = point.match(/^([A-Z])([\d.]+),([\d.]+)$/);
+		let [_, type, ax, ay] = point.match(/^([A-Z])(-?[\d.]+),(-?[\d.]+)$/);
 
 		switch (type) {
 			case 'M':
