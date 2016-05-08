@@ -40,3 +40,7 @@ Vector.average = function (...vectors) {
 
 	return new Vector(ax, ay);
 };
+
+Vector.random = function () {
+	return new Vector(random(), random());
+};

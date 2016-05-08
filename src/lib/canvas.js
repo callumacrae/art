@@ -1,6 +1,10 @@
+import Coord from './coord';
+
 export default function Canvas(selector) {
 	this._canvas = document.querySelector(selector);
 	this._context = this._canvas.getContext('2d');
+
+	this.origin = new Coord(this._canvas.width / 2, this._canvas.height / 2);
 }
 
 let opacity = 0.6;

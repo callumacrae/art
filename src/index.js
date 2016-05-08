@@ -19,14 +19,13 @@ function drawDiagonal(n) {
 //drawDiagonal(10);
 
 function drawSunburst(n) {
-	const origin = new Coord(400, 400);
+	const origin = canvas.origin;
 
 	for (var i = 0; i < n; i++) {
-		let randomDirection = new Vector(random(), random());
+		let randomDirection = Vector.random();
 		let start = origin.add(randomDirection.restrictMagnitude(200 + random() * 250));
 		let end = origin.add(randomDirection.restrictMagnitude(400 + random() * 50));
-		let path = generatePath(start, end);
-		canvas.drawPath(path);
+		canvas.drawPath(generatePath(start, end));
 	}
 }
 
