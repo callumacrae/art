@@ -1,5 +1,5 @@
 import Coord from './coord';
-import { COLORS as colors } from '../config';
+import { COLORS as colors, LINE_WIDTH } from '../config';
 
 /**
  * A small wrapper function so that we don't have to mix canvas logic randomly
@@ -41,8 +41,32 @@ Canvas.prototype.drawPath = function (path) {
 		}
 	});
 
-	context.lineWidth = 2;
+	context.lineWidth = LINE_WIDTH;
 
 	context.strokeStyle = colors[Math.floor(Math.random() * colors.length)];
 	context.stroke();
+};
+
+/**
+ * Fill the entire canvas with a specified color. Good for backgrounds.
+ *
+ * @param {string} color The color to fill the canvas with.
+ */
+Canvas.prototype.fill = function (color) {
+	const context = this._context;
+	context.rect(0, 0, this._canvas.width, this._canvas.height);
+	context.fillStyle = color;
+	context.fill();
+};
+
+/**
+ * Export the contents of the canvas to a specified image element.
+ *
+ * @param {string} selector Selector matching the element to export to.
+ */
+Canvas.prototype.exportTo = function (selector) {
+	this._canvas.toBlob(function (blob) {
+		const image = document.querySelector(selector);
+		image.src = URL.createObjectURL(blob);
+	});
 };

@@ -6,6 +6,8 @@ import * as config from './config';
 const canvas = new Canvas('#canvas');
 const origin = canvas.origin;
 
+canvas.fill('#262819');
+
 for (var i = 0; i < config.NUMBER_OF_LINES; i++) {
 	let randomDirection = Vector.random();
 	let start = origin.add(randomDirection.restrictMagnitude(config.startLength()));

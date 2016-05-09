@@ -17,6 +17,8 @@ export const COLORS = [
 	`rgba(142, 55, 48, ${opacity})` // red
 ];
 
+export const LINE_WIDTH = 2;
+
 
 // Line generation config
 export const SEGMENT_LENGTH = 5;
