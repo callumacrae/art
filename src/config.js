@@ -6,6 +6,8 @@ export const startLength = () => 200 + random() * 250;
 export const endLength = () => 400 + random() * 50;
 
 
+export const BACKGROUND_COLOR = '#262819';
+
 // Colors for the path
 let opacity = 0.6;
 
