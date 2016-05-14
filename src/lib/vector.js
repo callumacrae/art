@@ -82,4 +82,18 @@ Vector.random = function () {
 	return new Vector(random(), random());
 };
 
+/**
+ * Generate a vector from the direction and magnitude instead of from the
+ * components.
+ *
+ * @param {number} direction Direction in radians.
+ * @param {number} magnitude Magnitude of the vector.
+ * @returns {Vector} Generated vector.
+ */
+Vector.fromDirection = function (direction, magnitude = 1) {
+	const ax = magnitude * Math.cos(direction);
+	const ay = magnitude * Math.sin(direction);
+	return new Vector(ax, ay);
+};
+
 module.exports = Vector;

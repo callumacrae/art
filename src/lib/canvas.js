@@ -38,6 +38,7 @@ Canvas.prototype.drawPath = function (options) {
 
 	context.lineWidth = options.width;
 	context.strokeStyle = options.color;
+	context.lineCap = options.lineCap;
 	context.stroke();
 };
 
