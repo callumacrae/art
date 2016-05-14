@@ -8,10 +8,13 @@ const config = require('../config');
  *
  * @param {Coord} from The coordinate to draw from.
  * @param {Coord} to The coordinate to draw to.
- * @returns {string} A string representing the path to draw.
+ * @returns {Array} An array representing the path to draw.
  */
 function generatePath(from, to) {
-	let path = `M${from.x},${from.y}`;
+	let path = [
+		{ type: 'M', x: from.x, y: from.y }
+	];
+
 	let currentPoint = from;
 	let currentDirection;
 
@@ -42,7 +45,7 @@ function generatePath(from, to) {
 
 		let newPoint = currentPoint.add(newDirection);
 
-		path += `L${newPoint.x},${newPoint.y}`;
+		path.push({ type: 'L', x: newPoint.x, y: newPoint.y });
 		currentPoint = newPoint;
 		currentDirection = newDirection;
 

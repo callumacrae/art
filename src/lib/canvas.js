@@ -20,24 +20,20 @@ function Canvas(selector) {
  * Draws a path to the canvas. Path should be a string similar to how Raphael
  * does it (it's easier tested).
  *
- * @param {string} path M0,0L10,10L20,20 or something
+ * @param {Array} path An array containing path data.
  */
 Canvas.prototype.drawPath = function (path) {
 	const context = this._context;
 	context.beginPath();
 
-	const points = path.split(/(?=[A-Z])/g);
-
-	points.forEach(function (point) {
-		let [_, type, ax, ay] = point.match(/^([A-Z])(-?[\d.]+),(-?[\d.]+)$/);
-
-		switch (type) {
+	path.forEach(function (point) {
+		switch (point.type) {
 			case 'M':
-				context.moveTo(ax, ay);
+				context.moveTo(point.x, point.y);
 				break;
 
 			case 'L':
-				context.lineTo(ax, ay);
+				context.lineTo(point.x, point.y);
 		}
 	});
 
