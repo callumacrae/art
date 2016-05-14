@@ -10,7 +10,7 @@ function js() {
 	});
 
 	return bundler.bundle()
-		.pipe(source('line.js'))
+		.pipe(source('art.js'))
 		.pipe(gulp.dest('./demo'))
 		.pipe(browserSync.stream());
 }

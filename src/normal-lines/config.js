@@ -1,4 +1,4 @@
-const random = require('./lib/random');
+const random = require('../lib/random');
 
 exports.NUMBER_OF_LINES = 1000;
 
@@ -19,7 +19,7 @@ exports.COLORS = [
 	`rgba(142, 55, 48, ${opacity})` // red
 ];
 
-exports.LINE_WIDTH = 4;
+exports.LINE_WIDTH = 6;
 
 
 // Line generation config

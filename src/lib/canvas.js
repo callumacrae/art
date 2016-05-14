@@ -1,5 +1,4 @@
 const Coord = require('./coord');
-const config = require('../config');
 
 /**
  * A small wrapper function so that we don't have to mix canvas logic randomly
@@ -20,13 +19,13 @@ function Canvas(selector) {
  * Draws a path to the canvas. Path should be a string similar to how Raphael
  * does it (it's easier tested).
  *
- * @param {Array} path An array containing path data.
+ * @param {object} options An object containing options: path, width and color.
  */
-Canvas.prototype.drawPath = function (path) {
+Canvas.prototype.drawPath = function (options) {
 	const context = this._context;
 	context.beginPath();
 
-	path.forEach(function (point) {
+	options.path.forEach(function (point) {
 		switch (point.type) {
 			case 'M':
 				context.moveTo(point.x, point.y);
@@ -37,9 +36,8 @@ Canvas.prototype.drawPath = function (path) {
 		}
 	});
 
-	context.lineWidth = config.LINE_WIDTH;
-
-	context.strokeStyle = config.COLORS[Math.floor(Math.random() * config.COLORS.length)];
+	context.lineWidth = options.width;
+	context.strokeStyle = options.color;
 	context.stroke();
 };
 

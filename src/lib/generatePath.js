@@ -1,6 +1,4 @@
-const Coord = require('./coord');
 const Vector = require('./vector');
-const config = require('../config');
 
 /**
  * Generates a slightly wobbly path between two coordinates. The amount of
@@ -8,9 +6,10 @@ const config = require('../config');
  *
  * @param {Coord} from The coordinate to draw from.
  * @param {Coord} to The coordinate to draw to.
+ * @param {object} config Configuration options.
  * @returns {Array} An array representing the path to draw.
  */
-function generatePath(from, to) {
+function generatePath(from, to, config) {
 	let path = [
 		{ type: 'M', x: from.x, y: from.y }
 	];
