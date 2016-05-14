@@ -18,7 +18,7 @@ module.exports = function (selector) {
 
 		for (let j = i; j <= iAfter; j++) {
 			const direction = Math.PI / 150 * j - Math.PI / 2;
-			const magnitude = 1200 / Math.pow(j / 3500 + 1, 2);
+			const magnitude = Math.max(1200 / Math.pow(j / 3500 + 1, 1.5) - 50, 0);
 
 			const vector = Vector.fromDirection(direction, magnitude);
 			const coord = origin.add(vector);
@@ -26,7 +26,7 @@ module.exports = function (selector) {
 			path.push({ type: 'L', x: coord.x, y: coord.y });
 		}
 
-		i = iAfter + 3 + i / 2000;
+		i = iAfter + 3;
 
 		path[0].type = 'M';
 
