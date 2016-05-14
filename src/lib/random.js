@@ -4,7 +4,7 @@
  *
  * @returns {number} A random number between -0.5 and 0.5.
  */
-export default function random() {
+function random() {
 	return Math.random() - 0.5;
 }
 
@@ -25,3 +25,5 @@ random.normal = function () {
 
 	return total;
 };
+
+module.exports = random;

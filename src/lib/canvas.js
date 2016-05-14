@@ -1,5 +1,5 @@
-import Coord from './coord';
-import { COLORS as colors, LINE_WIDTH } from '../config';
+const Coord = require('./coord');
+const config = require('../config');
 
 /**
  * A small wrapper function so that we don't have to mix canvas logic randomly
@@ -8,7 +8,7 @@ import { COLORS as colors, LINE_WIDTH } from '../config';
  * @param {string} selector The element to draw onto.
  * @constructor
  */
-export default function Canvas(selector) {
+function Canvas(selector) {
 	this._canvas = document.querySelector(selector);
 	this._context = this._canvas.getContext('2d');
 
@@ -41,9 +41,9 @@ Canvas.prototype.drawPath = function (path) {
 		}
 	});
 
-	context.lineWidth = LINE_WIDTH;
+	context.lineWidth = config.LINE_WIDTH;
 
-	context.strokeStyle = colors[Math.floor(Math.random() * colors.length)];
+	context.strokeStyle = config.COLORS[Math.floor(Math.random() * config.COLORS.length)];
 	context.stroke();
 };
 
@@ -70,3 +70,5 @@ Canvas.prototype.exportTo = function (selector) {
 		image.src = URL.createObjectURL(blob);
 	});
 };
+
+module.exports = Canvas;

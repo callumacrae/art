@@ -2,14 +2,18 @@
   "name": "art",
   "private": true,
   "scripts": {
-    "build": "rollup -c",
-	"watch": "watch 'npm run build' src/"
+    "build": "browserify src/index.js -o demo/line.js",
+    "watch": "watchify src/index.js -o demo/line.js"
   },
   "author": "Callum Macrae <callum@macr.ae>",
   "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "browserify": "^13.0.1",
+    "gulp": "gulpjs/gulp#4.0",
+    "watchify": "^3.7.0"
+  },
   "dependencies": {
-    "rollup": "^0.26.2",
-    "rollup-plugin-buble": "^0.7.0",
-    "watch": "^0.18.0"
+    "vinyl-source-stream": "^1.1.0"
   }
 }

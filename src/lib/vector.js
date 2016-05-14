@@ -1,4 +1,4 @@
-import random from './random';
+const random = require('./random');
 
 /**
  * Stores the x and y dimensions of a euclidean vector in the cartesian plane
@@ -8,7 +8,7 @@ import random from './random';
  * @param {number} ay The y dimension.
  * @constructor
  */
-export default function Vector(ax, ay) {
+function Vector(ax, ay) {
 	if (!(this instanceof Vector)) {
 		return new Vector(ax, ay);
 	}
@@ -81,3 +81,5 @@ Vector.average = function (...vectors) {
 Vector.random = function () {
 	return new Vector(random(), random());
 };
+
+module.exports = Vector;

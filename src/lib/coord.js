@@ -6,7 +6,7 @@
  * @param {number} y The y position.
  * @constructor
  */
-export default function Coord(x, y) {
+function Coord(x, y) {
 	if (!(this instanceof Coord)) {
 		return new Coord(x, y);
 	}
@@ -37,3 +37,5 @@ Coord.prototype.distFrom = function (other) {
 Coord.prototype.add = function (vector) {
 	return new Coord(this.x + vector.ax, this.y + vector.ay);
 };
+
+module.exports = Coord;

@@ -1,6 +1,6 @@
-import Coord from './coord';
-import Vector from './vector';
-import * as config from '../config';
+const Coord = require('./coord');
+const Vector = require('./vector');
+const config = require('../config');
 
 /**
  * Generates a slightly wobbly path between two coordinates. The amount of
@@ -10,7 +10,7 @@ import * as config from '../config';
  * @param {Coord} to The coordinate to draw to.
  * @returns {string} A string representing the path to draw.
  */
-export default function generatePath(from, to) {
+function generatePath(from, to) {
 	let path = `M${from.x},${from.y}`;
 	let currentPoint = from;
 	let currentDirection;
@@ -50,3 +50,5 @@ export default function generatePath(from, to) {
 
 	return path;
 }
+
+module.exports = generatePath;

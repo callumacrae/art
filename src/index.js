@@ -1,7 +1,7 @@
-import Canvas from './lib/canvas';
-import Vector from './lib/Vector';
-import generatePath from './lib/generatePath';
-import * as config from './config';
+const Canvas = require('./lib/canvas');
+const Vector = require('./lib/Vector');
+const generatePath = require('./lib/generatePath');
+const config = require('./config');
 
 const canvas = new Canvas('#canvas');
 const origin = canvas.origin;
