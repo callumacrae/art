@@ -7,6 +7,7 @@ module.exports = function (selector) {
 	const canvas = new Canvas(selector);
 	const origin = canvas.origin;
 
+	document.documentElement.style.backgroundColor = config.BACKGROUND_COLOR;
 	canvas.fill(config.BACKGROUND_COLOR);
 
 	for (var i = 0; i < config.NUMBER_OF_LINES; i++) {

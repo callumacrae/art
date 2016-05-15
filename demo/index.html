@@ -5,17 +5,64 @@
 	<title>Art</title>
 
 	<style>
+		html {
+			box-sizing: border-box;
+		}
+
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+
 		body {
 			font-family: monospace;
+			color: #4E4F59;
+		}
+
+		.container {
+			width: 810px;
+			margin: 0 auto;
+		}
+
+		.container:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.art {
+			float: left;
+			width: 400px;
+		}
+
+		.art:not(:nth-child(2n)) {
+			margin-right: 10px;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
 		}
 	</style>
 </head>
 <body>
-	<ul>
-		<li><a href="normal-lines.html">Normal Lines</a></li>
-		<li><a href="perimetros.html">Perimetros</a></li>
-	</ul>
+	<div class="container">
+		<h1>Callum Macrae</h1>
+		<p>Sometimes I make digital art. If any of these don't work, try again in Chrome.</p>
 
-	<p>If it doesn't work, try again in Chrome.</p>
+		<div class="art">
+			<a href="perimetros.html">
+				<h2>Perimetros</h2>
+				<p>Each dash represents a digit of π, spiralling infinitely inwards.</p>
+				<img src="thumb-perimetros.png" width="400" height="400" alt="Perimetros">
+			</a>
+		</div>
+		<div class="art">
+			<a href="normal-lines.html">
+				<h2>Normal Lines</h2>
+				<p>The randomness in these lines is generated from a normally-distributed random function.</p>
+				<img src="thumb-normal-lines.png" width="400" height="400" alt="Normal Lines">
+			</a>
+		</div>
+	</div>
 </body>
 </html>
