@@ -1,5 +1,5 @@
 const Canvas = require('../lib/canvas');
-const Vector = require('../lib/Vector');
+const Vector = require('../lib/vector');
 const generatePath = require('../lib/generatePath');
 const config = require('./config');
 
