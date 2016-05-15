@@ -76,9 +76,25 @@
 
 	<script src="art.js"></script>
 	<script>
-		perimetros('#perimetros');
-		normalLines('#normal-lines');
-		document.documentElement.style.backgroundColor = null;
+		var works = [
+			{ el: '#normal-lines', fn: normalLines },
+			{ el: '#perimetros', fn: perimetros }
+		];
+
+		function renderNext() {
+			var work = works.pop();
+			work.fn(work.el);
+			document.documentElement.style.backgroundColor = null;
+
+			if (works.length) {
+				// Do it on the next cycle so that we get a rerender
+				setTimeout(function () {
+					renderNext();
+				});
+			}
+		}
+
+		renderNext();
 
 		document.querySelector('.no-js').style.display = 'none';
 	</script>
