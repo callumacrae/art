@@ -2,8 +2,8 @@
   "name": "art",
   "private": true,
   "scripts": {
-    "build": "browserify src/index.js -o demo/line.js",
-    "watch": "watchify src/index.js -o demo/line.js"
+    "build": "gulp",
+    "watch": "gulp --watch"
   },
   "author": "Callum Macrae <callum@macr.ae>",
   "license": "MIT",
