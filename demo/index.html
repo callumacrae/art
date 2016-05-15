@@ -56,7 +56,7 @@
 	<div class="container">
 		<h1>Callum Macrae</h1>
 		<p>Sometimes I make digital art. Click on a piece to view full size. They're written using JavaScript, and the source can be found on <a href="https://github.com/callumacrae/art">GitHub</a>.</p>
-		<p>If they're not appearing, try again in Chrome.</p>
+		<p class="no-js">You need to be using a browser that supports ES6, such as Chrome. Sorry!</p>
 
 		<div class="art">
 			<a href="perimetros.html">
@@ -79,6 +79,8 @@
 		perimetros('#perimetros');
 		normalLines('#normal-lines');
 		document.documentElement.style.backgroundColor = null;
+
+		document.querySelector('.no-js').style.display = 'none';
 	</script>
 </body>
 </html>
