@@ -34,7 +34,7 @@
 			width: 400px;
 		}
 
-		.art:not(:nth-child(2n)) {
+		.art:not(:nth-child(2n + 1)) {
 			margin-right: 10px;
 		}
 
@@ -42,27 +42,40 @@
 			color: inherit;
 			text-decoration: none;
 		}
+
+		canvas {
+			width: 400px;
+			height: 400px;
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<h1>Callum Macrae</h1>
-		<p>Sometimes I make digital art. If any of these don't work, try again in Chrome.</p>
+		<p>Sometimes I make digital art. Click to view full size.</p>
+		<p>If any of these don't work, try again in Chrome.</p>
 
 		<div class="art">
 			<a href="perimetros.html">
 				<h2>Perimetros</h2>
 				<p>Each dash represents a digit of π, spiralling infinitely inwards.</p>
-				<img src="thumb-perimetros.png" width="400" height="400" alt="Perimetros">
+				<canvas id="perimetros" width="1600" height="1600"></canvas>
 			</a>
 		</div>
 		<div class="art">
 			<a href="normal-lines.html">
 				<h2>Normal Lines</h2>
 				<p>The randomness in these lines is generated from a normally-distributed random function.</p>
-				<img src="thumb-normal-lines.png" width="400" height="400" alt="Normal Lines">
+				<canvas id="normal-lines" width="1600" height="1600"></canvas>
 			</a>
 		</div>
 	</div>
+
+	<script src="art.js"></script>
+	<script>
+		perimetros('#perimetros');
+		normalLines('#normal-lines');
+		document.documentElement.style.backgroundColor = null;
+	</script>
 </body>
 </html>
